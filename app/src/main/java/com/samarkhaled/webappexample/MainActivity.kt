@@ -45,16 +45,21 @@ fun WebView() {
             )
 
             settings.javaScriptEnabled = true
+            /*
+            This property in Android WebView determines whether the WebView will show a preview of
+            the web page before it’s completely loaded. When set to true, the WebView displays
+             a thumbnail of the web page during the loading process. This feature enhances the user
+             experience by giving them a visual preview of the web page’s content as it loads,
+             helping them understand the page’s context.
+             */
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
             settings.setSupportZoom(true)
 
             webViewClient = object : WebViewClient() {
-
                 override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
                     backEnabled = view.canGoBack()
                 }
-
             }
             loadUrl(mUrl)
             webView = this
