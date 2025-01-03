@@ -56,6 +56,16 @@ fun WebView() {
             settings.useWideViewPort = true
             settings.setSupportZoom(true)
 
+            println("Before update userAgent = " + settings.userAgentString)
+            val manager = context?.packageManager
+            val info = manager?.getPackageInfo(
+                context?.packageName.toString(), 0
+            )
+            val versionName = info?.versionName
+            settings.userAgentString = "Web App $versionName"
+
+            println("After update userAgent = " + settings.userAgentString)
+
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
                     backEnabled = view.canGoBack()
