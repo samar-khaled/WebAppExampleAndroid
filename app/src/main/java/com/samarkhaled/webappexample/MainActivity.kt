@@ -75,7 +75,7 @@ fun WebView() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun WebViewPreview() {
     WebAppExampleTheme {
         WebView()
     }
